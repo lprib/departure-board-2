@@ -58,7 +58,7 @@ Future<void> main() async {
     ),
   ], depRowLimit: 5);
 
-  await state.runInitialQueries();
+  //await state.runInitialQueries();
 
   runApp(
     ChangeNotifierProvider(
