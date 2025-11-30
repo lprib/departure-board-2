@@ -35,8 +35,25 @@ Future<void> main() async {
       crs: "WIM",
       name: "Wim Thameslink",
       logo: StationLogo.thamesLink,
-      reportDestination: true,
       operatorCodeFilter: "TL",
+      reportDestination: true,
+    ),
+    TrafficEnglandService(
+      name: "M25 Traffic",
+      reportSpecs: [
+        TrafficReportSpec(
+          name: "J9 CW",
+          motorway: "M25",
+          fromJunctionName: "J9",
+          toJunctionName: "J8",
+        ),
+        TrafficReportSpec(
+          name: "J9 CCW",
+          motorway: "M25",
+          fromJunctionName: "J9",
+          toJunctionName: "J10",
+        ),
+      ],
     ),
   ], depRowLimit: 5);
 
