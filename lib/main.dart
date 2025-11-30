@@ -27,13 +27,13 @@ Future<void> main() async {
     ),
     LdbwsService(
       crs: "CSS",
-      name: "Chessington",
+      name: "Chessington South",
       logo: StationLogo.southWesternRailway,
       reportDestination: false,
     ),
     LdbwsService(
       crs: "WIM",
-      name: "Wim Thameslink",
+      name: "Wimbledon Thameslink",
       logo: StationLogo.thamesLink,
       operatorCodeFilter: "TL",
       reportDestination: true,
@@ -183,4 +183,3 @@ class MainPage extends StatelessWidget {
     );
   }
 }
-
