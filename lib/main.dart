@@ -21,7 +21,9 @@ Future<void> main() async {
   final state = TrainboardState([
     TflBusDepartureService(
       naptanCodes: ["490011796S", "490011796N"],
-      name: "Bussy",
+      name: "Rushett Lane Bus",
+      // No one gives a fuck that it's deepdene
+      commonLocationNames: {"Dorking, Deepdene": "Dorking"},
     ),
     LdbwsService(
       crs: "CSS",

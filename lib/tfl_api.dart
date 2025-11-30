@@ -15,8 +15,11 @@ class TimedDeparture {
 class TflBusDepartureService extends StationDepartureService {
   final List<String> naptanCodes;
 
-  TflBusDepartureService({required this.naptanCodes, required super.name})
-    : super(logo: StationLogo.tflBus, pollTime: Duration(seconds: 5));
+  TflBusDepartureService({
+    required this.naptanCodes,
+    required super.name,
+    super.commonLocationNames,
+  }) : super(logo: StationLogo.tflBus, pollTime: Duration(seconds: 5));
 
   @override
   Future<StationData> getLatest() async {
@@ -44,7 +47,7 @@ class TflBusDepartureService extends StationDepartureService {
 
   TimedDeparture parseDeparture(dynamic dep) {
     final String line = dep["lineName"];
-    final String dest = dep["destinationName"];
+    String dest = dep["destinationName"];
 
     final arrivalTimestamp = DateTime.parse(dep["expectedArrival"]);
     final arrivalDifference = arrivalTimestamp.difference(DateTime.now());
@@ -60,11 +63,15 @@ class TflBusDepartureService extends StationDepartureService {
       arrivalTime = "Due";
     }
 
+    if (commonLocationNames.containsKey(dest)) {
+      dest = commonLocationNames[dest] as String;
+    }
+
     return TimedDeparture(
       time: arrivalTimestamp,
       dep: Departure.bus(
-        time: arrivalTime,
-        secondaryText: "$line $dest",
+        leftmostText: arrivalTime,
+        rightmostText: "$line $dest",
         isLive: true,
       ),
     );
