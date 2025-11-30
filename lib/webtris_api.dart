@@ -17,6 +17,9 @@ class TrafficMonitorSite {
 ///
 /// There is one "station" for traffic, which generates a "departure" for each
 /// traffic monitoring site of interest
+/// 
+/// API:
+/// https://webtris.highwaysengland.co.uk/api/swagger/ui/index
 class WebtrisTrafficService extends StationDepartureService {
   final List<TrafficMonitorSite> sites;
 
@@ -24,7 +27,7 @@ class WebtrisTrafficService extends StationDepartureService {
     : super(logo: StationLogo.highway, pollTime: Duration(seconds: 5));
 
   @override
-  Future<StationData> getLatest() {
+  Future<StationData> getLatest() async {
     // TODO: implement getLatest
     throw UnimplementedError();
   }
@@ -36,6 +39,7 @@ class WebtrisTrafficService extends StationDepartureService {
       ),
     );
     if (response.statusCode == 200) {
+      return Departure.bus(time: "l", secondaryText: "s", isLive: false);
     } else {
       throw Exception(
         "webtris query for site ${site.id} returned HTTP ${response.statusCode}",

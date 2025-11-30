@@ -8,6 +8,7 @@ class StationWidget extends StatelessWidget {
   final String name;
   final StationLogo logo;
   final StationData station;
+
   /// Limit number of departures to this. If zero, unlimited
   final int depRowLimit;
 
@@ -42,6 +43,12 @@ class StationWidget extends StatelessWidget {
         break;
       case StationLogo.digico:
         logoWidget = SvgPicture.asset("assets/digico.svg", height: svgHeight);
+        break;
+      case StationLogo.highway:
+        logoWidget = SvgPicture.asset(
+          "assets/uk_motorway_symbol.svg",
+          height: svgHeight,
+        );
         break;
     }
 
@@ -112,15 +119,23 @@ class DepartureWidget extends StatelessWidget {
       case DepartureIcon.none:
         icon = Icons.abc;
         iconColor = Colors.black;
+        break;
       case DepartureIcon.check:
         icon = Icons.check_rounded;
         iconColor = theme.colorScheme.onPrimaryFixed;
+        break;
       case DepartureIcon.live:
         icon = Icons.rss_feed;
         iconColor = theme.colorScheme.onPrimaryFixedVariant;
+        break;
       case DepartureIcon.scheduled:
         icon = Icons.calendar_month;
         iconColor = theme.colorScheme.onPrimaryFixed;
+        break;
+      case DepartureIcon.speed:
+        icon = Icons.speed;
+        iconColor = theme.colorScheme.onPrimaryFixed;
+        break;
     }
 
     return Container(

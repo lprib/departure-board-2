@@ -10,6 +10,8 @@ class TimedDeparture {
   TimedDeparture({required this.time, required this.dep});
 }
 
+/// API:
+/// https://api.tfl.gov.uk/swagger/ui/index.html?url=/swagger/docs/v1#!/StopPoint/StopPoint_Arrivals
 class TflBusDepartureService extends StationDepartureService {
   final List<String> naptanCodes;
 

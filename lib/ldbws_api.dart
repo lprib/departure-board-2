@@ -6,6 +6,8 @@ import 'package:http/http.dart' as http;
 // TODO(liam)
 const String API_KEY = "e3d8b441-61aa-4ce8-9709-6872af719b2a";
 
+/// API:
+/// https://realtime.nationalrail.co.uk/OpenLDBWS/
 class LdbwsService extends StationDepartureService {
   final String crs;
   final bool reportDestination;
@@ -154,8 +156,6 @@ class LdbwsService extends StationDepartureService {
       final depboardRequestDoc = builder.buildDocument().toXmlString(
         pretty: false,
       );
-
-      print(depboardRequestDoc);
 
       final soap12Response = await http.post(
         headers: {

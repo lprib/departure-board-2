@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:depboard2_flutter/ldbws.dart';
+import 'package:depboard2_flutter/ldbws_api.dart';
 import 'package:depboard2_flutter/tfl_api.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
