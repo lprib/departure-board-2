@@ -267,9 +267,9 @@ class LdbwsService extends StationDepartureService {
           }
 
           return Departure.train(
-            time: stdNode.innerText,
+            leftmostText: stdNode.innerText,
             type: type,
-            secondaryText: secondaryText,
+            rightmostText: secondaryText,
           );
         });
     return StationData.departures(departures.toList());

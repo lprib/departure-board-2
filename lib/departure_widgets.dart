@@ -151,7 +151,7 @@ class DepartureWidget extends StatelessWidget {
             spacing: 30,
             children: [
               Text(
-                departure.time,
+                departure.leftmostText,
                 style: theme.textTheme.bodyMedium!.copyWith(
                   color: fg,
                   decoration: timeTextDecoration,
@@ -161,10 +161,10 @@ class DepartureWidget extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    if (departure.secondaryText != null)
+                    if (departure.rightmostText != null)
                       Flexible(
                         child: Text(
-                          departure.secondaryText!,
+                          departure.rightmostText!,
                           style: theme.textTheme.bodyMedium!.copyWith(
                             color: fg,
                           ),

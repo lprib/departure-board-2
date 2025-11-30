@@ -39,7 +39,7 @@ class WebtrisTrafficService extends StationDepartureService {
       ),
     );
     if (response.statusCode == 200) {
-      return Departure.bus(time: "l", secondaryText: "s", isLive: false);
+      return Departure.bus(leftmostText: "l", rightmostText: "s", isLive: false);
     } else {
       throw Exception(
         "webtris query for site ${site.id} returned HTTP ${response.statusCode}",
