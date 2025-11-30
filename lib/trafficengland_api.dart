@@ -125,6 +125,7 @@ class TrafficEnglandService extends StationDepartureService {
         }
       }
     }
+    return null;
   }
 
   Departure averageSpeedToDeparture(
