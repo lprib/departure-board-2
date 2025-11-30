@@ -159,6 +159,7 @@ class DepartureWidget extends StatelessWidget {
               ),
               Expanded(
                 child: Row(
+                  spacing: 5,
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     if (departure.rightmostText != null)
